@@ -5,10 +5,26 @@ This project applies **Deep Q-Networks (DQN)** to train an agent to play **Atari
 
 **Initial Attempt:** We initially tried out different games like **Double Dunk**, but found it to be far more complex, requiring extensive training time and GPU resources. As a result, we switched to **Breakout**, which is simpler for our taskk and allows for faster convergence.
 
-## 🏆 Contributors
-- **Oche David Ankeli** – Trained the models and experimented with different hyperparameters.
-- **Aime Magnifique** – Created the visualizations used in performance analysis.
-- **Esther Mbanzabigwi** – Extracted data for reward tracking and episode analysis.
+## 👥 Team Contributions
+
+Our team implemented a structured collaboration framework to ensure efficient progress tracking and knowledge sharing throughout the project lifecycle. Below is our detailed contribution breakdown:
+
+### Individual Contributions
+
+| Team Member            | Key Responsibilities                                                                 | Specific Deliverables                                                                 |
+|------------------------|-------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------|
+| **Oche David Ankeli**  | • Spearheaded DQN model architecture design and implementation<br>• Conducted several hyperparameter experiments <br>• Optimized GPU utilization across all training sessions<br>• Resolved environment rendering and reward shaping challenges | • 5 production-ready model variants (.zip)<br>• Comprehensive hyperparameter tuning <br>• Technical implementation guide (Markdown)<br>• Detailed training logs (1.2M steps across all runs) |
+| **Aime Magnifique**    | • Developed interactive training progress visualization<br>• Created comparative performance visualizations across model versions<br>• Engineered video rendering pipeline<br>• Designed result presentation framework | • quality visualizations (Matplotlib/Seaborn)<br>• Custom TensorBoard integration<br>• reward progression documentation<br>• Frame-by-frame gameplay analysis (Jupyter Notebook) |
+| **Esther Mbanzabigwi** | • Built reward tracking infrastructure from scratch<br>• Automated metric extraction from TensorBoard logs<br>• Performed statistical analysis on 327 episode samples<br>• Established performance benchmarking standards | • Processed CSV datasets (327 episodes)<br>• Step-reward correlation analysis (Python)<br>• Training efficiency metrics |
+
+### Collaboration Framework
+
+**We had weekly Sync Meetings**  
+Every Wednesday & Friday via Google Meet  
+• Code reviews with live debugging sessions  
+• Collective decision-making on hyperparameter adjustments  
+• Progress tracking against project milestones  
+• Shared Google Colab notebooks with real-time collaborative editing  
 
 ---
 
