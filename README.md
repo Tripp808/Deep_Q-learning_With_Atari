@@ -1,7 +1,9 @@
 # Deep Q-Learning: Training and Evaluating an Atari RL Agent
 
 ## 📌 Project Overview
-This project applies **Deep Q-Networks (DQN)** to train an agent to play **Atari's Double Dunk** using **Stable-Baselines3** and **Gymnasium**. The goal was to develop a reinforcement learning agent, fine-tune its hyperparameters, and evaluate its performance through visualization and analysis.
+This project applies **Deep Q-Networks (DQN)** to train an agent to play **Atari's Breakout** using **Stable-Baselines3** and **Gymnasium**. The goal was to develop a reinforcement learning agent, fine-tune its hyperparameters, and evaluate its performance through visualization and analysis.
+
+**Initial Attempt:** We initially started with **Double Dunk**, but found it to be far more complex, requiring extensive training time and GPU resources. As a result, we switched to **Breakout**, which is simpler and allows for faster convergence.
 
 ## 🏆 Contributors
 - **Oche David Ankeli** – Trained the models and experimented with different hyperparameters.
@@ -11,10 +13,10 @@ This project applies **Deep Q-Networks (DQN)** to train an agent to play **Atari
 ---
 
 ## 🎮 Environment Selection
-We selected **Double Dunk** from the **Gymnasium Atari collection** because it offers:
-- **Dynamic gameplay mechanics** (offense vs. defense)
-- **Challenging AI behavior** that requires strategic decision-making
-- **Well-defined scoring system**, making it ideal for reinforcement learning
+We selected **Breakout** from the **Gymnasium Atari collection** because it offers:
+- **Simple mechanics** (paddle and ball interactions)
+- **Clear objective** (breaking bricks for points)
+- **Faster training time** compared to Double Dunk, making it more suitable for Deep Q-Learning
 
 ---
 
@@ -32,9 +34,9 @@ We selected **Double Dunk** from the **Gymnasium Atari collection** because it o
 | **Training Timesteps** | `1,000,000` |
 
 🔹 **Observations:**
-- The agent learned basic game movements but lacked strong decision-making skills.
-- Slow convergence due to **lower exploration fraction (`0.1`)**, resulting in poor exploration of new strategies.
-- The **batch size (`32`)** was relatively small, leading to slower policy updates.
+- The agent learned basic movements but struggled to anticipate ball trajectory.
+- Slow convergence due to **lower exploration fraction (`0.1`)**, leading to poor brick-breaking strategies.
+- The **batch size (`32`)** was relatively small, causing slower policy updates.
 
 ---
 
@@ -105,8 +107,8 @@ We selected **Double Dunk** from the **Gymnasium Atari collection** because it o
 After training, we ran `play.py` to load the trained model and evaluate the agent's gameplay. The agent:
 ✅ Played multiple episodes
 ✅ Achieved **higher rewards** compared to the baseline model
-✅ Successfully switched between **offense and defense** roles
-✅ Gameplay was recorded and saved as `doubledunk_playback.mp4`
+✅ Successfully learned to **bounce the ball and break bricks effectively**
+✅ Gameplay was recorded and saved as `breakout_playback.mp4`
 
 ---
 
@@ -114,13 +116,13 @@ After training, we ran `play.py` to load the trained model and evaluate the agen
 ✔ **train.py & play.py** scripts included ✅  
 ✔ **Trained model saved as `dqn_model.zip`** ✅  
 ✔ **Hyperparameter tuning table added** ✅  
-✔ **Gameplay video recorded & included (`doubledunk_playback.mp4`)** ✅  
+✔ **Gameplay video recorded & included (`breakout_playback.mp4`)** ✅  
 ✔ **Group contributions documented** ✅  
 
 ---
 
 ## 🎯 Conclusion
-Through **DQN training and hyperparameter tuning**, we developed an Atari agent that successfully plays **Double Dunk**. This project demonstrated **how deep reinforcement learning can be optimized for real-world gameplay strategies**.
+Through **DQN training and hyperparameter tuning**, we developed an Atari agent that successfully plays **Breakout**. This project demonstrated **how deep reinforcement learning can be optimized for real-world gameplay strategies**.
 
 🚀 **Future Work:** We could explore **PPO (Proximal Policy Optimization)** and **A2C (Advantage Actor-Critic)** to compare performance against DQN.
 
