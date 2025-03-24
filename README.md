@@ -6,7 +6,7 @@ This project applies **Deep Q-Networks (DQN)** to train an agent to play **Atari
 ## 🏆 Contributors
 - **Oche David Ankeli** – Trained the models and experimented with different hyperparameters.
 - **Aime Magnifique** – Created the visualizations used in performance analysis.
-- **Esther Mbabazingwe** – Extracted data for reward tracking and episode analysis.
+- **Esther Mbanzabigwi** – Extracted data for reward tracking and episode analysis.
 
 ---
 
