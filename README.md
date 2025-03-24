@@ -33,6 +33,8 @@ We selected **Breakout** from the **Gymnasium Atari collection** because it offe
 | **Final Exploration Rate** | `0.01` |
 | **Training Timesteps** | `1,000,000` |
 
+**Pls note that the epsilon_start or exploration_initial_eps already has a default value of 1.0, thats why it wasnt explicitly set in our code. Our initial exploration rate is 1.0 meaning 100% random actions by the agent**
+
 🔹 **Observations:**
 - The agent learned basic movements but struggled to anticipate ball trajectory.
 - Slow convergence due to **lower exploration fraction (`0.1`)**, leading to poor brick-breaking strategies.
