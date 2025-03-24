@@ -155,7 +155,7 @@ For researchers with **similar resource constraints**, we recommend starting wit
     "train_freq": 4,            # Matches Atari's 4-frame skip
     "target_update_interval": 10000 # Standard for stability
 }
-
+```
 ---
 
 ## 🚀 Challenges We Faced
