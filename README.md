@@ -88,7 +88,7 @@ We selected **Double Dunk** from the **Gymnasium Atari collection** because it o
 ### **1️⃣ GPU Issues**
 - Initially, training on CPU was **too slow** (~3 days for `1M` timesteps).
 - We attempted to train on **Google Colab GPUs**, but faced frequent disconnects.
-- Eventually, we used a **local GPU (RTX 3090)**, which significantly reduced training time.
+- Eventually, we used a **Kaggle GPU (NVIDIA T4 x 2)**, which significantly reduced training time.
 
 ### **2️⃣ No Live Rendering**
 - Atari environments require **OpenGL** for `env.render(mode="human")`.
