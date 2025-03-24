@@ -1,41 +1,46 @@
-import tensorflow as tf
 import pandas as pd
-import os
 import matplotlib.pyplot as plt
+from tensorboard.backend.event_processing.event_accumulator import EventAccumulator
+import os
 
-# Define the TensorBoard log directory
-log_dir = "/kaggle/working/dqn_doubledunk_tensorboard/DQN_1"
+def load_tensorboard_data(log_dir):
+    """Load training metrics from TensorBoard logs"""
+    event_acc = EventAccumulator(log_dir)
+    event_acc.Reload()
+    
+    rewards = event_acc.Scalars("rollout/ep_rew_mean")
+    steps = [x.step for x in rewards]
+    values = [x.value for x in rewards]
+    
+    return pd.DataFrame({"step": steps, "reward": values})
 
-# Function to extract training rewards from TensorBoard logs
-def extract_tb_data(log_dir):
-    data = {"step": [], "reward": []}
+def plot_training_metrics(df):
+    """Plot training metrics"""
+    plt.figure(figsize=(12, 6))
+    
+    # Reward plot
+    plt.subplot(1, 2, 1)
+    plt.plot(df["step"], df["reward"], color="blue")
+    plt.title("Training Rewards")
+    plt.xlabel("Steps")
+    plt.ylabel("Mean Episode Reward")
+    plt.grid(True)
+    
+# Rolling average
+    plt.subplot(1, 2, 2)
+    df["rolling_avg"] = df["reward"].rolling(100).mean()
+    plt.plot(df["step"], df["rolling_avg"], color="red")
+    plt.title("Rolling Average (100 episodes)")
+    plt.xlabel("Steps")
+    plt.ylabel("Average Reward")
+    plt.grid(True)
+    
+    plt.tight_layout()
+    plt.savefig("training_metrics.png")
+    plt.show()
 
-    # Iterate over event files in the log directory
-    for event_file in os.listdir(log_dir):
-        event_path = os.path.join(log_dir, event_file)
-
-        # Read and extract scalar values from the logs
-        for event in tf.compat.v1.train.summary_iterator(event_path):
-            for value in event.summary.value:
-                if value.tag == "rollout/ep_rew_mean":  # Extract reward values
-                    data["step"].append(event.step)
-                    data["reward"].append(value.simple_value)
-
-    return pd.DataFrame(data)
-
-# Extract and save training data
-df = extract_tb_data(log_dir)
-df.to_csv("progress_agent.csv", index=False)
-
-# Display first few rows of extracted data
-print(df.head())
-
-# Plot training rewards over time
-plt.figure(figsize=(10, 5))
-plt.plot(df["step"], df["reward"], label="Episode Reward", color="blue")
-plt.xlabel("Training Steps")
-plt.ylabel("Mean Reward")
-plt.title("Training Rewards Over Time (DoubleDunk-v5)")
-plt.legend()
-plt.grid()
-plt.show()
+if _name_ == "_main_":
+    log_dir = "./logs/DQN_1"  
+    df = load_tensorboard_data(log_dir)
+    df.to_csv("training_metrics.csv", index=False)
+    plot_training_metrics(df)
